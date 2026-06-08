@@ -9,6 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+        <style>
+            #preview{
+                width: 250px;
+            }
+        </style>
     <title>Document</title>
 </head>
 
@@ -42,32 +47,27 @@
             const imageInput = document.getElementById('image');
             const preview = document.getElementById('preview');
 
-            function previewFiles(files) {
+            function Preview(files) {
                 preview.innerHTML = '';
                 const file = files[0];
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     const img = document.createElement('img');
                     img.src = e.target.result;
-                    img.style.width = '250px';
                     preview.appendChild(img);
                 }
                 reader.readAsDataURL(file);
             }
 
             imageInput.addEventListener('change', (e) => {
-                previewFiles(e.target.files);
-            });
-
-            imageInput.addEventListener('dragover', (e) => {
-                e.preventDefault();
+                Preview(e.target.files);
             });
 
             imageInput.addEventListener('drop', (e) => {
                 e.preventDefault();
                 const files = e.dataTransfer.files;
                 imageInput.files = files;
-                previewFiles(files);
+                Preview(files);
             });
         </script>
 </body>
