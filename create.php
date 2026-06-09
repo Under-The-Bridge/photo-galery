@@ -10,7 +10,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
         <style>
-            #preview{
+            #preview img{
                 width: 250px;
             }
         </style>
@@ -33,16 +33,15 @@
         <form enctype="multipart/form-data" method="post" action="post-db.php">
             <div class="mb-3">
                 <label for="title" class="form-label">Название</label>
-                <input type="text" class="form-control" id="title" require name="title">
+                <input type="text" class="form-control" id="title" required name="title">
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="file" class="form-control" id="image" require name="image">
+                <input type="file" class="form-control" id="image" required name="image">
             </div>
             <div id="preview"></div>
             <button type="submit" class="btn btn-primary">Выложить</button>
         </form>
-        </div>
         <script>
             const imageInput = document.getElementById('image');
             const preview = document.getElementById('preview');
